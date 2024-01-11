@@ -44,7 +44,6 @@ namespace rememberMe.Controllers
                 }
             }
 
-            var currentCulture = Thread.CurrentThread.CurrentUICulture.Name;
             if (TempData.ContainsKey("LoginFlag"))
             {
                 ViewBag.LoginFlag = TempData["LoginFlag"];
@@ -55,16 +54,8 @@ namespace rememberMe.Controllers
         [HttpPost]
         public IActionResult Login(Usrs model)
         {
-           // var userName = HttpContext.Session.GetString("UserName");
-            var requestData = new
-            {
-                uName = model.uName,
-                uPassword = model.uPassword
-            };
 
-            var json = JsonConvert.SerializeObject(requestData);
-
-           if (model.uName == "Admin" && model.uPassword=="password")
+           if (model.uName == "Admin2" && model.uPassword=="password3")
             {
                 HttpContext.Session.SetString("UserName", model.uName);
                 HttpContext.Session.SetString("Email", model.uPassword);
